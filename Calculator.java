@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.Scanner;
 
 class Calculator
@@ -30,7 +31,7 @@ class Calculator
         }
         else if (x.contains("/"))
         {
-            System.out.println("Result: \n" + a + " / " + b + " = " + (a.divide(b)));
+            System.out.println("Result: \n" + a + " / " + b + " = " + (a.divide(b, MathContext.DECIMAL32)));
         }
         else
         {
