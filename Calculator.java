@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 class Calculator
@@ -7,29 +8,33 @@ class Calculator
         Scanner calculator = new Scanner(System.in);
 
         System.out.println("1番目の数字: ");
-        int a = Integer.parseInt(calculator.nextLine());
+        BigDecimal a = calculator.nextBigDecimal();
 
         System.out.println("数学演算記号: ");
-        String x = calculator.nextLine();
+        String x = calculator.next();
 
         System.out.println("2番目の数字: ");
-        int b = Integer.parseInt(calculator.nextLine());
+        BigDecimal b = calculator.nextBigDecimal();
 
-        if (x == "+")
+        if (x.contains("+"))
         {
-            System.out.println(a + " + " + b + " = " + (a + b));
+            System.out.println("Result: \n" + a + " + " + b + " = " + (a.add(b)));
         }
-        else if (x == "-")
+        else if (x.contains("-"))
         {
-            System.out.println(a + " - " + b + " = " + (a - b));
+            System.out.println("Result: \n" + a + " - " + b + " = " + (a.subtract(b)));
         }
-        else if (x == "*")
+        else if (x.contains("*"))
         {
-            System.out.println(a + " * " + b + " = " + (a * b));
+            System.out.println("Result: \n" + a + " * " + b + " = " + (a.multiply(b)));
         }
-        else if (x == "/")
+        else if (x.contains("/"))
         {
-            System.out.println(a + " / " + b + " = " + (a / b));
+            System.out.println("Result: \n" + a + " / " + b + " = " + (a.divide(b)));
+        }
+        else
+        {
+            System.out.println("Error!");
         }
         
         calculator.close();
